@@ -1,7 +1,3 @@
-## Exercise 2. Addition and Scalar Multiplication
-
-For
-
 $$
 A=
 \begin{pmatrix}
