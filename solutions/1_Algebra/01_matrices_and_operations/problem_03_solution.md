@@ -1,12 +1,3 @@
-$$
-AB,\ BA,\ BC,\ CB,\ AC,\ CA,\ AD,\ DA
-$$
-
-determine whether they are defined. If so, state the size of the result. Justify each decision using the dimension compatibility condition.
-
-> **Why this exercise:** forces an understanding of dimension compatibility before carrying out any calculation.
-
----
 
 ### Solution
 
