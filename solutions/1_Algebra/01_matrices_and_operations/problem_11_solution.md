@@ -1,64 +1,54 @@
 ## Results
 
-$$
-A^2=
+```math
+AB =
 \begin{pmatrix}
-1 & 2 \\
-0 & 1
-\end{pmatrix},
+a + c & b + d \\
+c & d
+\end{pmatrix}
+```
+
+```math
+BA =
+\begin{pmatrix}
+a & a + b \\
+c & c + d
+\end{pmatrix}
+```
+
+### Conditions for AB = BA
+
+Comparing entries:
+
+```math
+a + c = a \;\Rightarrow\; c = 0
+```
+
+```math
+b + d = a + b \;\Rightarrow\; d = a
+```
+
+```math
+c = c, \qquad d = c + d \;\Rightarrow\; c = 0
+```
+
+So the conditions are $c = 0$ and $d = a$, with $a$ and $b$ free.
+
+### General form of B
+
+```math
+B =
+\begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+= aI + bN,
 \qquad
-A^3=
+N =
 \begin{pmatrix}
-1 & 3 \\
-0 & 1
-\end{pmatrix},
-\qquad
-A^4=
-\begin{pmatrix}
-1 & 4 \\
-0 & 1
+0 & 1 \\
+0 & 0
 \end{pmatrix}
-$$
+```
 
-### Conjecture
-
-$$
-A^n=
-\begin{pmatrix}
-1 & n \\
-0 & 1
-\end{pmatrix}
-\quad \text{for all } n \ge 1.
-$$
-
-### Inductive step
-
-Assume $A^n=\begin{pmatrix}1 & n \\ 0 & 1\end{pmatrix}$. Then
-
-$$
-A^{n+1}=A^nA=
-\begin{pmatrix}
-1 & n \\
-0 & 1
-\end{pmatrix}
-\begin{pmatrix}
-1 & 1 \\
-0 & 1
-\end{pmatrix}
-=
-\begin{pmatrix}
-1\cdot 1 + n\cdot 0 & 1\cdot 1 + n\cdot 1 \\
-0\cdot 1 + 1\cdot 0 & 0\cdot 1 + 1\cdot 1
-\end{pmatrix}
-=
-\begin{pmatrix}
-1 & n+1 \\
-0 & 1
-\end{pmatrix}.
-$$
-
-This is exactly the formula for $n+1$. The base case $A^1 = A$ matches $n=1$, so by induction the formula holds for all $n \ge 1$.
-
-### Why it works
-
-Multiplying by $A$ leaves the diagonal entries at $1$ and the lower-left entry at $0$. In the upper-right entry, the existing $n$ is unchanged and a new $1$ is added, which increases it from $n$ to $n+1$.
+Every matrix commuting with $A$ is upper triangular with equal diagonal entries.
