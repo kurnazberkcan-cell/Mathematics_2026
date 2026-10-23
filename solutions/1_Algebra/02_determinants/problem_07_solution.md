@@ -1,27 +1,39 @@
-$$
-\det(2A) = 2^3\det A = 8\cdot(-4) = -32
-$$
+## Problem 7
 
-Multiplying a $3\times 3$ matrix by a scalar $c$ gives $\det(cA) = c^3\det A$.
+**Question:** Let $A$ be a $3\times 3$ matrix with $\det A = -4$. Compute each of the following determinants and state the property you use:
 
 $$
-\det(A^T) = \det A = -4
+\det(2A), \qquad \det(A^{T}), \qquad \det(A^{2}), \qquad \det(-A)
 $$
 
-A matrix and its transpose have the same determinant.
+### Solution
+
+**1. $\det(2A)$.** Multiplying an $n\times n$ matrix by a scalar $c$ gives $\det(cA) = c^{n}\det A$. Here $n = 3$:
 
 $$
-\det(A^2) = (\det A)^2 = (-4)^2 = 16
+\det(2A) = 2^{3}\det A = 8\cdot(-4) = -32
 $$
 
-The determinant is multiplicative: $\det(AB) = \det A\cdot\det B$.
+**2. $\det(A^{T})$.** A matrix and its transpose have the same determinant:
 
 $$
-\det(-A) = (-1)^3\det A = -1\cdot(-4) = 4
+\det(A^{T}) = \det A = -4
 $$
 
-This is the scalar rule with $c = -1$.
+**3. $\det(A^{2})$.** The determinant is multiplicative: $\det(AB) = \det A\cdot\det B$. With $B = A$:
 
 $$
-\boxed{\det(2A) = -32,\qquad \det(A^T) = -4,\qquad \det(A^2) = 16,\qquad \det(-A) = 4}
+\det(A^{2}) = (\det A)^{2} = (-4)^{2} = 16
+$$
+
+**4. $\det(-A)$.** This is the scalar rule with $c = -1$ and $n = 3$:
+
+$$
+\det(-A) = (-1)^{3}\det A = -1\cdot(-4) = 4
+$$
+
+### Conclusion
+
+$$
+\det(2A) = -32, \qquad \det(A^{T}) = -4, \qquad \det(A^{2}) = 16, \qquad \det(-A) = 4
 $$
