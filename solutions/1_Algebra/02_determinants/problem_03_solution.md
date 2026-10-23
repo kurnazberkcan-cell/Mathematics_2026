@@ -1,4 +1,16 @@
-**Solution:** First compute $\det A$ using Sarrus' rule. Repeat the first two columns to the right of the matrix:
+## Problem 3
+
+**Question:** Let
+
+$$
+A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 3 & 1 \\ 2 & 1 & 1 \end{pmatrix}.
+$$
+
+Compute $\det A$. Let $B$ be the matrix obtained from $A$ by swapping the first and second rows ($R_1 \leftrightarrow R_2$). Predict $\det B$ using a determinant property, then verify your prediction by computing $\det B$ directly.
+
+### Solution
+
+**Computing $\det A$ (Sarrus' rule).** Repeat the first two columns to the right of the matrix:
 
 $$
 \begin{array}{ccc|cc}
@@ -26,24 +38,19 @@ $$
 \det A = 7 - 1 = 6
 $$
 
-**Matrix $B$:** Swap the first and second rows of $A$ ($R_1 \leftrightarrow R_2$):
+**Matrix $B$.** Swap the first and second rows of $A$ ($R_1 \leftrightarrow R_2$):
 
 $$
-B=
-\begin{pmatrix}
-0 & 3 & 1 \\
-1 & 2 & 0 \\
-2 & 1 & 1
-\end{pmatrix}
+B = \begin{pmatrix} 0 & 3 & 1 \\ 1 & 2 & 0 \\ 2 & 1 & 1 \end{pmatrix}
 $$
 
-**Prediction (property used: swapping two rows of a matrix multiplies the determinant by $-1$):**
+**Prediction.** Swapping two rows of a matrix multiplies the determinant by $-1$, so
 
 $$
 \det B = -\det A = -6
 $$
 
-**Verification:** Expanding along the first row:
+**Verification.** Expanding along the first row:
 
 $$
 \det B = 0\cdot\det\begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}
@@ -53,13 +60,13 @@ $$
 
 $$
 = 0 - 3\cdot(1\cdot 1 - 0\cdot 2) + 1\cdot(1\cdot 1 - 2\cdot 2)
-= -3\cdot 1 + (1 - 4)
-= -3 - 3
-= -6
+= -3\cdot 1 + (1 - 4) = -3 - 3 = -6
 $$
 
-The calculation matches the prediction:
+### Conclusion
+
+The direct calculation matches the prediction:
 
 $$
-\boxed{\det A = 6, \qquad \det B = -6}
+\det A = 6, \qquad \det B = -6
 $$
