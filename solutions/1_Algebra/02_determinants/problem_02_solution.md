@@ -1,4 +1,16 @@
-**Solution (Sarrus' rule):** Repeat the first two columns to the right of the matrix:
+## Problem 2
+
+**Question:** Let
+
+$$
+A = \begin{pmatrix} 1 & 2 & -1 \\ 0 & 3 & 4 \\ 2 & 1 & 5 \end{pmatrix}.
+$$
+
+Compute $\det A$ using Sarrus' rule, then check your result using row operations.
+
+### Solution
+
+**Sarrus' rule.** Repeat the first two columns to the right of the matrix:
 
 $$
 \begin{array}{ccc|cc}
@@ -26,30 +38,23 @@ $$
 \det A = 31 - (-2) = 33
 $$
 
-**Check (property used: adding a multiple of one row to another does not change the determinant):**
-
-Apply $R_3 \to R_3 - 2R_1$:
+**Check with row operations.** Adding a multiple of one row to another row does not change the determinant. Apply $R_3 \to R_3 - 2R_1$:
 
 $$
-\det A =
-\det\begin{pmatrix}
-1 & 2 & -1 \\
-0 & 3 & 4 \\
-0 & -3 & 7
-\end{pmatrix}
+\det A = \det\begin{pmatrix} 1 & 2 & -1 \\ 0 & 3 & 4 \\ 0 & -3 & 7 \end{pmatrix}
 $$
 
 Expanding along the first column:
 
 $$
-= 1\cdot\det\begin{pmatrix} 3 & 4 \\ -3 & 7 \end{pmatrix}
-= 1\cdot\bigl(3\cdot 7 - 4\cdot(-3)\bigr)
-= 21 + 12
-= 33
+= 1\cdot \det\begin{pmatrix} 3 & 4 \\ -3 & 7 \end{pmatrix}
+= 3\cdot 7 - 4\cdot(-3) = 21 + 12 = 33
 $$
+
+### Conclusion
 
 Both methods agree:
 
 $$
-\boxed{\det A = 33}
+\det A = 33
 $$
