@@ -1,68 +1,187 @@
-## Results
+# Exercise 12. Formula for a Matrix Power
 
-```math
-A^2 =
+## Exercise Statement
+
+Given:
+
+\[
+A=
 \begin{pmatrix}
-1 & 2 \\
-0 & 1
+1&1\\
+0&1
 \end{pmatrix}
-```
+\]
 
-```math
-A^3 =
+Compute \(A^2,A^3,A^4\), and use them to formulate a conjecture for \(A^n\).
+
+Then prove the formula using mathematical induction. Assume the formula is true for n, multiply by A, and explain why you obtain the formula for n + 1.
+
+## Solution
+
+### Part 1. Calculate A²
+
+\[
+A^2=
 \begin{pmatrix}
-1 & 3 \\
-0 & 1
-\end{pmatrix}
-```
-
-```math
-A^4 =
-\begin{pmatrix}
-1 & 4 \\
-0 & 1
-\end{pmatrix}
-```
-
-### Conjecture
-
-```math
-A^n =
-\begin{pmatrix}
-1 & n \\
-0 & 1
-\end{pmatrix},
-\qquad n \ge 1
-```
-
-### Inductive step
-
-Assume the formula holds for n. Then:
-
-```math
-A^{n+1} = A^n A =
-\begin{pmatrix}
-1 & n \\
-0 & 1
+1&1\\
+0&1
 \end{pmatrix}
 \begin{pmatrix}
-1 & 1 \\
-0 & 1
+1&1\\
+0&1
 \end{pmatrix}
+\]
+
+\[
+\boxed{
+A^2=
+\begin{pmatrix}
+1&2\\
+0&1
+\end{pmatrix}
+}
+\]
+
+### Part 2. Calculate A³
+
+\[
+A^3=A^2A
+\]
+
+\[
 =
 \begin{pmatrix}
-1 & 1 + n \\
-0 & 1
+1&2\\
+0&1
 \end{pmatrix}
+\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}
+\]
+
+\[
+\boxed{
+A^3=
+\begin{pmatrix}
+1&3\\
+0&1
+\end{pmatrix}
+}
+\]
+
+### Part 3. Calculate A⁴
+
+\[
+A^4=A^3A
+\]
+
+\[
 =
 \begin{pmatrix}
-1 & n + 1 \\
-0 & 1
+1&3\\
+0&1
 \end{pmatrix}
-```
+\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}
+\]
 
-This is exactly the formula for n + 1. Since $A^1 = A$ matches the formula for n = 1, the formula holds for all $n \ge 1$ by induction.
+\[
+\boxed{
+A^4=
+\begin{pmatrix}
+1&4\\
+0&1
+\end{pmatrix}
+}
+\]
 
-### Why it works
+### Part 4. Formulate the Conjecture
 
-Multiplying by $A$ keeps the diagonal entries equal to 1 and the lower-left entry equal to 0. In the upper-right entry, the existing value n is kept and a new 1 is added, so it becomes n + 1.
+The upper-right entry increases by one with each multiplication.
+
+The general formula is:
+
+\[
+\boxed{
+A^n=
+\begin{pmatrix}
+1&n\\
+0&1
+\end{pmatrix}
+}
+\]
+
+### Part 5. Proof by Mathematical Induction
+
+**Base Case:**
+
+For n = 1:
+
+\[
+A^1=
+\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}
+\]
+
+The formula is true.
+
+**Inductive Hypothesis:**
+
+Assume that the formula is true for n:
+
+\[
+A^n=
+\begin{pmatrix}
+1&n\\
+0&1
+\end{pmatrix}
+\]
+
+**Inductive Step:**
+
+Multiply both sides by A:
+
+\[
+A^{n+1}=A^nA
+\]
+
+\[
+=
+\begin{pmatrix}
+1&n\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}
+\]
+
+\[
+=
+\begin{pmatrix}
+1&n+1\\
+0&1
+\end{pmatrix}
+\]
+
+This is exactly the proposed formula for n + 1.
+
+Therefore, by mathematical induction:
+
+\[
+\boxed{
+A^n=
+\begin{pmatrix}
+1&n\\
+0&1
+\end{pmatrix}
+}
+\]
+
+for every positive integer n.
