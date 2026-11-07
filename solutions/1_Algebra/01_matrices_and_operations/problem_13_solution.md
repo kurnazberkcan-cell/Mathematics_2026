@@ -1,79 +1,217 @@
-## Results
+# Exercise 13. A Recurrence Written in Matrix Form
 
-```math
-F^2 =
+## Exercise Statement
+
+Given:
+
+\[
+F=
 \begin{pmatrix}
-2 & 1 \\
-1 & 1
+1&1\\
+1&0
 \end{pmatrix}
-```
+\]
 
-```math
-F^3 =
-\begin{pmatrix}
-3 & 2 \\
-2 & 1
-\end{pmatrix}
-```
+Answer the following questions:
 
-```math
-F^4 =
-\begin{pmatrix}
-5 & 3 \\
-3 & 2
-\end{pmatrix}
-```
+1. Compute \(F^2,F^3,F^4,F^5\).
+2. Compare the numbers obtained with the Fibonacci sequence:
 
-```math
-F^5 =
-\begin{pmatrix}
-8 & 5 \\
-5 & 3
-\end{pmatrix}
-```
+\[
+0,1,1,2,3,5,8,\ldots
+\]
 
-### Relationship with the Fibonacci sequence
+Describe the relationship you observe.
+3. Compute:
 
-With $F_0 = 0, F_1 = 1, F_2 = 1, F_3 = 2, F_4 = 3, F_5 = 5, F_6 = 8, \ldots$, the pattern is:
-
-```math
-F^n =
-\begin{pmatrix}
-F_{n+1} & F_n \\
-F_n & F_{n-1}
-\end{pmatrix}
-```
-
-For example, $F^5$ contains $F_6 = 8$, $F_5 = 5$, and $F_4 = 3$.
-
-### One recurrence step
-
-```math
+\[
 F
 \begin{pmatrix}
-a \\
+a\\
+b
+\end{pmatrix}
+\]
+
+Explain how this multiplication performs one recurrence step: it creates the sum of two consecutive terms and keeps one of them for the next step.
+
+## Solution
+
+### Part 1. Calculate the Matrix Powers
+
+First:
+
+\[
+F^2=
+\begin{pmatrix}
+1&1\\
+1&0
+\end{pmatrix}
+\begin{pmatrix}
+1&1\\
+1&0
+\end{pmatrix}
+\]
+
+\[
+\boxed{
+F^2=
+\begin{pmatrix}
+2&1\\
+1&1
+\end{pmatrix}
+}
+\]
+
+Next:
+
+\[
+F^3=F^2F
+\]
+
+\[
+\boxed{
+F^3=
+\begin{pmatrix}
+3&2\\
+2&1
+\end{pmatrix}
+}
+\]
+
+Next:
+
+\[
+F^4=F^3F
+\]
+
+\[
+\boxed{
+F^4=
+\begin{pmatrix}
+5&3\\
+3&2
+\end{pmatrix}
+}
+\]
+
+Finally:
+
+\[
+F^5=F^4F
+\]
+
+\[
+\boxed{
+F^5=
+\begin{pmatrix}
+8&5\\
+5&3
+\end{pmatrix}
+}
+\]
+
+### Part 2. Compare with the Fibonacci Sequence
+
+The Fibonacci sequence is:
+
+\[
+0,1,1,2,3,5,8,\ldots
+\]
+
+The matrix powers contain consecutive Fibonacci numbers:
+
+\[
+F^2=
+\begin{pmatrix}
+2&1\\
+1&1
+\end{pmatrix}
+\]
+
+\[
+F^3=
+\begin{pmatrix}
+3&2\\
+2&1
+\end{pmatrix}
+\]
+
+\[
+F^4=
+\begin{pmatrix}
+5&3\\
+3&2
+\end{pmatrix}
+\]
+
+\[
+F^5=
+\begin{pmatrix}
+8&5\\
+5&3
+\end{pmatrix}
+\]
+
+The general relationship is:
+
+\[
+\boxed{
+F^n=
+\begin{pmatrix}
+F_{n+1}&F_n\\
+F_n&F_{n-1}
+\end{pmatrix}
+}
+\]
+
+where \(F_0=0\) and \(F_1=1\).
+
+### Part 3. Matrix Multiplication as a Recurrence Step
+
+\[
+F
+\begin{pmatrix}
+a\\
 b
 \end{pmatrix}
 =
 \begin{pmatrix}
-a + b \\
+1&1\\
+1&0
+\end{pmatrix}
+\begin{pmatrix}
+a\\
+b
+\end{pmatrix}
+\]
+
+\[
+=
+\begin{pmatrix}
+a+b\\
 a
 \end{pmatrix}
-```
+\]
 
-The first entry $a + b$ is the sum of the two consecutive terms, which is the next term of the sequence. The second entry $a$ is the larger of the two old terms, kept for the next step. So if $(a, b) = (F_{k+1}, F_k)$, then
+Therefore:
 
-```math
+\[
+\boxed{
 F
 \begin{pmatrix}
-F_{k+1} \\
-F_k
+a\\
+b
 \end{pmatrix}
 =
 \begin{pmatrix}
-F_{k+2} \\
-F_{k+1}
+a+b\\
+a
 \end{pmatrix}
-```
+}
+\]
 
-and applying $F$ repeatedly generates the whole sequence.
+### Explanation
+
+The multiplication creates a new term by adding the two previous consecutive terms. It also keeps the previous first term as the second entry.
+
+This is exactly the Fibonacci recurrence rule.
