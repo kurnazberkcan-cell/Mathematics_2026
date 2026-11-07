@@ -1,54 +1,125 @@
-## Results
+# Exercise 11. When Do Matrices Commute?
 
-```math
-AB =
+## Exercise Statement
+
+Given:
+
+\[
+A=
 \begin{pmatrix}
-a + c & b + d \\
-c & d
-\end{pmatrix}
-```
-
-```math
-BA =
-\begin{pmatrix}
-a & a + b \\
-c & c + d
-\end{pmatrix}
-```
-
-### Conditions for AB = BA
-
-Comparing entries:
-
-```math
-a + c = a \;\Rightarrow\; c = 0
-```
-
-```math
-b + d = a + b \;\Rightarrow\; d = a
-```
-
-```math
-c = c, \qquad d = c + d \;\Rightarrow\; c = 0
-```
-
-So the conditions are $c = 0$ and $d = a$, with $a$ and $b$ free.
-
-### General form of B
-
-```math
-B =
-\begin{pmatrix}
-a & b \\
-0 & a
-\end{pmatrix}
-= aI + bN,
+1&1\\
+0&1
+\end{pmatrix},
 \qquad
-N =
+B=
 \begin{pmatrix}
-0 & 1 \\
-0 & 0
+a&b\\
+c&d
 \end{pmatrix}
-```
+\]
 
-Every matrix commuting with $A$ is upper triangular with equal diagonal entries.
+Find the conditions on \(a,b,c,d\) under which:
+
+\[
+AB=BA
+\]
+
+Describe the general form of all such matrices B.
+
+## Solution
+
+### Part 1. Calculate AB
+
+\[
+AB=
+\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+\]
+
+\[
+AB=
+\begin{pmatrix}
+a+c&b+d\\
+c&d
+\end{pmatrix}
+\]
+
+### Part 2. Calculate BA
+
+\[
+BA=
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}
+\]
+
+\[
+BA=
+\begin{pmatrix}
+a&a+b\\
+c&c+d
+\end{pmatrix}
+\]
+
+### Part 3. Find the Conditions
+
+For AB = BA, corresponding entries must be equal.
+
+\[
+a+c=a
+\]
+
+\[
+b+d=a+b
+\]
+
+\[
+c=c
+\]
+
+\[
+d=c+d
+\]
+
+Simplifying:
+
+\[
+c=0
+\]
+
+\[
+d=a
+\]
+
+The upper-right entry b is unrestricted.
+
+### Final Answer
+
+The general form of B is:
+
+\[
+\boxed{
+B=
+\begin{pmatrix}
+a&b\\
+0&a
+\end{pmatrix}
+}
+\]
+
+where a and b can be any real numbers.
+
+### Explanation
+
+Matrices A and B commute only when B has equal diagonal entries and a zero in its lower-left position. The upper-right entry can be any real number.
