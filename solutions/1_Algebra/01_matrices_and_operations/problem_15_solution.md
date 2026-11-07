@@ -1,82 +1,225 @@
-## Results
+# Exercise 15. Associativity of Multiplication and Different Calculation Paths
 
-```math
-AB =
-\begin{pmatrix}
-5 & 2 \\
-1 & 4
-\end{pmatrix}
-```
+## Exercise Statement
 
-```math
-(AB)C =
+Given:
+
+\[
+A=
 \begin{pmatrix}
-5 & 2 \\
-1 & 4
+1&2&0\\
+0&1&1
+\end{pmatrix}
+\]
+
+\[
+B=
+\begin{pmatrix}
+1&0\\
+2&1\\
+-1&3
+\end{pmatrix}
+\]
+
+\[
+C=
+\begin{pmatrix}
+2&1\\
+0&-1
+\end{pmatrix}
+\]
+
+Answer the following questions:
+
+1. Compute \((AB)C\).
+2. Compute \(A(BC)\).
+3. Compare the results and the number of intermediate operations.
+4. Explain what associativity of matrix multiplication means in this example.
+
+## Solution
+
+### Part 1. Calculate (AB)C
+
+First calculate AB:
+
+\[
+AB=
+\begin{pmatrix}
+1&2&0\\
+0&1&1
 \end{pmatrix}
 \begin{pmatrix}
-2 & 1 \\
-0 & -1
+1&0\\
+2&1\\
+-1&3
 \end{pmatrix}
+\]
+
+\[
 =
 \begin{pmatrix}
-10 & 3 \\
-2 & -3
+1+4+0&0+2+0\\
+0+2-1&0+1+3
 \end{pmatrix}
-```
+\]
 
-```math
-BC =
+\[
+AB=
 \begin{pmatrix}
-2 & 1 \\
-4 & 1 \\
--2 & -4
+5&2\\
+1&4
 \end{pmatrix}
-```
+\]
 
-```math
-A(BC) =
+Now multiply by C:
+
+\[
+(AB)C=
 \begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1
+5&2\\
+1&4
 \end{pmatrix}
 \begin{pmatrix}
-2 & 1 \\
-4 & 1 \\
--2 & -4
+2&1\\
+0&-1
 \end{pmatrix}
+\]
+
+\[
 =
 \begin{pmatrix}
-10 & 3 \\
-2 & -3
+10&5-2\\
+2&1-4
 \end{pmatrix}
-```
+\]
 
-### Comparison
-
-```math
-(AB)C = A(BC) =
+\[
+\boxed{
+(AB)C=
 \begin{pmatrix}
-10 & 3 \\
-2 & -3
+10&3\\
+2&-3
 \end{pmatrix}
-```
+}
+\]
 
-### Number of operations
+### Part 2. Calculate A(BC)
 
-| Order | Intermediate product | Multiplications | Additions |
-|---|---|---|---|
-| $(AB)C$ | $AB$ is $2\times 2$ | $12 + 8 = 20$ | $8 + 4 = 12$ |
-| $A(BC)$ | $BC$ is $3\times 2$ | $12 + 12 = 24$ | $6 + 8 = 14$ |
+First calculate BC:
 
-Both groupings give the same matrix, but $(AB)C$ needs fewer operations here because its intermediate matrix is smaller.
+\[
+BC=
+\begin{pmatrix}
+1&0\\
+2&1\\
+-1&3
+\end{pmatrix}
+\begin{pmatrix}
+2&1\\
+0&-1
+\end{pmatrix}
+\]
 
-### Meaning of associativity
+\[
+BC=
+\begin{pmatrix}
+2&1\\
+4&1\\
+-2&-4
+\end{pmatrix}
+\]
 
-Associativity means the grouping of the factors does not change the result:
+Now multiply by A:
 
-```math
-(AB)C = A(BC)
-```
+\[
+A(BC)=
+\begin{pmatrix}
+1&2&0\\
+0&1&1
+\end{pmatrix}
+\begin{pmatrix}
+2&1\\
+4&1\\
+-2&-4
+\end{pmatrix}
+\]
 
-In this example, applying $B$ and then $A$ first (as $AB$) and then $C$ gives the same final matrix as first combining $B$ and $C$ and then applying $A$. The order of the matrices stays the same; only the placement of parentheses changes, and this affects the cost of computing the product, not its value.
+\[
+=
+\begin{pmatrix}
+2+8+0&1+2+0\\
+0+4-2&0+1-4
+\end{pmatrix}
+\]
+
+\[
+\boxed{
+A(BC)=
+\begin{pmatrix}
+10&3\\
+2&-3
+\end{pmatrix}
+}
+\]
+
+### Part 3. Compare the Results
+
+\[
+(AB)C=
+\begin{pmatrix}
+10&3\\
+2&-3
+\end{pmatrix}
+\]
+
+\[
+A(BC)=
+\begin{pmatrix}
+10&3\\
+2&-3
+\end{pmatrix}
+\]
+
+Therefore:
+
+\[
+\boxed{(AB)C=A(BC)}
+\]
+
+Both calculation paths produce exactly the same matrix.
+
+### Part 4. Compare the Number of Scalar Operations
+
+For a standard \(m\times n\) multiplied by \(n\times p\) matrix product, the number of scalar multiplications is \(mnp\).
+
+**Path 1: Calculate (AB)C**
+
+- AB: \(2\times3\times2=12\) scalar multiplications.
+- (AB)C: \(2\times2\times2=8\) scalar multiplications.
+- Total: 20 scalar multiplications.
+
+**Path 2: Calculate A(BC)**
+
+- BC: \(3\times2\times2=12\) scalar multiplications.
+- A(BC): \(2\times3\times2=12\) scalar multiplications.
+- Total: 24 scalar multiplications.
+
+Path 1 requires 20 scalar multiplications, while Path 2 requires 24.
+
+Therefore, calculating AB first is more efficient for these particular matrix dimensions.
+
+### Explanation
+
+Associativity means that changing the grouping of matrix multiplication does not change the final result:
+
+\[
+\boxed{(AB)C=A(BC)}
+\]
+
+However, associativity changes grouping, not the order of the actions on a vector.
+
+Acting on a vector, \((AB)C\) applies C first, then B, then A.
+
+The same order applies to \(A(BC)\). Both expressions represent the same composition of transformations.
+
+Associativity can change the number of calculations required, but it does not change the final matrix.
