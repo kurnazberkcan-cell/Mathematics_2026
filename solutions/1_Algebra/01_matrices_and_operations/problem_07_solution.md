@@ -1,58 +1,204 @@
-## Results
+# Exercise 7. Identity Matrix, Zero Matrix, and Powers
 
-```math
-AI = A =
+## Exercise Statement
+
+Given:
+
+\[
+A=
 \begin{pmatrix}
-2 & 1 \\
-0 & 2
+2&1\\
+0&2
 \end{pmatrix}
-```
+\]
 
-```math
-IA = A =
+Compute:
+
+\[
+AI,\qquad IA,\qquad A+0,\qquad A^2,\qquad A^3
+\]
+
+Explain the roles of the identity matrix \(I\) and the zero matrix \(0\), and describe the pattern observed in successive powers of \(A\).
+
+## Solution
+
+### Part 1. Identity Matrix
+
+The identity matrix is:
+
+\[
+I=
 \begin{pmatrix}
-2 & 1 \\
-0 & 2
+1&0\\
+0&1
 \end{pmatrix}
-```
+\]
 
-```math
-A + 0 = A =
+Multiplying A by I:
+
+\[
+AI=
 \begin{pmatrix}
-2 & 1 \\
-0 & 2
+2&1\\
+0&2
 \end{pmatrix}
-```
-
-```math
-A^2 =
 \begin{pmatrix}
-4 & 4 \\
-0 & 4
+1&0\\
+0&1
 \end{pmatrix}
-```
+\]
 
-```math
-A^3 =
+\[
+\boxed{
+AI=
 \begin{pmatrix}
-8 & 12 \\
-0 & 8
+2&1\\
+0&2
 \end{pmatrix}
-```
+}
+\]
 
-### Roles of I and 0
+Similarly:
 
-- $I$ is the multiplicative identity: $AI = IA = A$.
-- $0$ is the additive identity: $A + 0 = A$.
-
-### Pattern in powers of A
-
-```math
-A^n =
+\[
+\boxed{
+IA=
 \begin{pmatrix}
-2^n & n \cdot 2^{n-1} \\
-0 & 2^n
+2&1\\
+0&2
 \end{pmatrix}
-```
+}
+\]
 
-The diagonal entries double with each power, and the upper-right entry follows n · 2^(n-1), giving 1, 4, 12, ...
+### Part 2. Zero Matrix
+
+\[
+0=
+\begin{pmatrix}
+0&0\\
+0&0
+\end{pmatrix}
+\]
+
+\[
+A+0=
+\begin{pmatrix}
+2&1\\
+0&2
+\end{pmatrix}
++
+\begin{pmatrix}
+0&0\\
+0&0
+\end{pmatrix}
+\]
+
+\[
+\boxed{
+A+0=
+\begin{pmatrix}
+2&1\\
+0&2
+\end{pmatrix}
+}
+\]
+
+### Part 3. Calculate A²
+
+\[
+A^2=A\cdot A
+\]
+
+\[
+=
+\begin{pmatrix}
+2&1\\
+0&2
+\end{pmatrix}
+\begin{pmatrix}
+2&1\\
+0&2
+\end{pmatrix}
+\]
+
+\[
+\boxed{
+A^2=
+\begin{pmatrix}
+4&4\\
+0&4
+\end{pmatrix}
+}
+\]
+
+### Part 4. Calculate A³
+
+\[
+A^3=A^2A
+\]
+
+\[
+=
+\begin{pmatrix}
+4&4\\
+0&4
+\end{pmatrix}
+\begin{pmatrix}
+2&1\\
+0&2
+\end{pmatrix}
+\]
+
+\[
+\boxed{
+A^3=
+\begin{pmatrix}
+8&12\\
+0&8
+\end{pmatrix}
+}
+\]
+
+### Part 5. Observe the Pattern
+
+\[
+A=
+\begin{pmatrix}
+2&1\\
+0&2
+\end{pmatrix}
+\]
+
+\[
+A^2=
+\begin{pmatrix}
+4&4\\
+0&4
+\end{pmatrix}
+\]
+
+\[
+A^3=
+\begin{pmatrix}
+8&12\\
+0&8
+\end{pmatrix}
+\]
+
+The general pattern is:
+
+\[
+\boxed{
+A^n=
+\begin{pmatrix}
+2^n&n2^{n-1}\\
+0&2^n
+\end{pmatrix}
+}
+\]
+
+### Explanation
+
+The identity matrix does not change a matrix when multiplied by it. The zero matrix does not change a matrix when added to it.
+
+The diagonal entries follow powers of 2, while the upper-right entry follows the pattern \(1,4,12,\ldots\).
