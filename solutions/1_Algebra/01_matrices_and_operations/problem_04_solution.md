@@ -1,117 +1,63 @@
-# Exercise 4. Matrix Multiplication and Noncommutativity
+# Problem 4. Matrix Multiplication and Noncommutativity
 
-## Exercise Statement
+## Question
 
-Given:
+Given
 
-\[
+$$
 A=
 \begin{pmatrix}
-1&2\\
-0&1
+1 & 2 \\
+0 & 1 \\
 \end{pmatrix},
-\qquad
+$$
+
+$$
 B=
 \begin{pmatrix}
-2&0\\
-3&1
-\end{pmatrix}
-\]
+2 & 0 \\
+3 & 1 \\
+\end{pmatrix}.
+$$
 
-Compute \(AB\) and \(BA\). Determine whether \(AB=BA\). Use this example to explain what noncommutativity of matrix multiplication means.
+Compute $AB$ and $BA$. Is $AB=BA$? Use this example to explain what noncommutativity of matrix multiplication means.
 
 ## Solution
 
-### 1. Calculate AB
+Each entry of a product is the dot product of a row of the left matrix with a column of the right matrix.
 
-\[
+$$
 AB=
 \begin{pmatrix}
-1&2\\
-0&1
+1\cdot2+2\cdot3 & 1\cdot0+2\cdot1 \\
+0\cdot2+1\cdot3 & 0\cdot0+1\cdot1 \\
 \end{pmatrix}
-\begin{pmatrix}
-2&0\\
-3&1
-\end{pmatrix}
-\]
+$$
 
-\[
-=
-\begin{pmatrix}
-1(2)+2(3)&1(0)+2(1)\\
-0(2)+1(3)&0(0)+1(1)
-\end{pmatrix}
-\]
-
-\[
-\boxed{
+$$
 AB=
 \begin{pmatrix}
-8&2\\
-3&1
+8 & 2 \\
+3 & 1 \\
 \end{pmatrix}
-}
-\]
+$$
 
-### 2. Calculate BA
-
-\[
+$$
 BA=
 \begin{pmatrix}
-2&0\\
-3&1
+2\cdot1+0\cdot0 & 2\cdot2+0\cdot1 \\
+3\cdot1+1\cdot0 & 3\cdot2+1\cdot1 \\
 \end{pmatrix}
-\begin{pmatrix}
-1&2\\
-0&1
-\end{pmatrix}
-\]
+$$
 
-\[
-=
-\begin{pmatrix}
-2(1)+0(0)&2(2)+0(1)\\
-3(1)+1(0)&3(2)+1(1)
-\end{pmatrix}
-\]
-
-\[
-\boxed{
+$$
 BA=
 \begin{pmatrix}
-2&4\\
-3&7
+2 & 4 \\
+3 & 7 \\
 \end{pmatrix}
-}
-\]
+$$
 
-### 3. Compare the Results
+Since $AB\neq BA$ (for example, the entries in position $(1,1)$ are $8$ and $2$), the two products differ.
 
-\[
-AB=
-\begin{pmatrix}
-8&2\\
-3&1
-\end{pmatrix}
-\]
-
-\[
-BA=
-\begin{pmatrix}
-2&4\\
-3&7
-\end{pmatrix}
-\]
-
-Therefore:
-
-\[
-\boxed{AB\neq BA}
-\]
-
-### Explanation
-
-Matrix multiplication is generally not commutative. This means that changing the order of multiplication can produce a different result.
-
-Unlike ordinary multiplication of numbers, the order of matrices matters.
+Both products are defined here, yet they are different matrices. This is what noncommutativity means: the order of the factors matters, and in general $AB\neq BA$, unlike multiplication of numbers.
