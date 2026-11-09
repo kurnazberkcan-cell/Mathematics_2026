@@ -1,107 +1,22 @@
-# Exercise 3. When Can Matrices Be Multiplied?
+# Problem 3. When Can Matrices Be Multiplied?
 
-## Exercise Statement
+## Question
 
-The matrix dimensions are:
+The matrix sizes are $A_{2\times3}$, $B_{3\times4}$, $C_{4\times2}$, $D_{2\times2}$.
 
-- \(A_{2\times3}\)
-- \(B_{3\times4}\)
-- \(C_{4\times2}\)
-- \(D_{2\times2}\)
-
-For the following products:
-
-\[
-AB,\ BA,\ BC,\ CB,\ AC,\ CA,\ AD,\ DA
-\]
-
-Determine whether each product is defined. If it is, state the dimensions of the resulting matrix. Justify each decision using the dimension compatibility condition.
+For each of the products $AB$, $BA$, $BC$, $CB$, $AC$, $CA$, $AD$, $DA$, determine whether it is defined. If it is, state the size of the result. Justify each decision using the dimension compatibility condition.
 
 ## Solution
 
-Two matrices can be multiplied if the number of columns of the first matrix equals the number of rows of the second matrix.
+The product $XY$ of an $m\times n$ matrix $X$ and a $p\times q$ matrix $Y$ is defined exactly when $n=p$, that is, when the number of columns of $X$ equals the number of rows of $Y$. The result then has size $m\times q$.
 
-The resulting matrix has the number of rows of the first matrix and the number of columns of the second matrix.
+- $AB$: $A_{2\times3}$, $B_{3\times4}$. Here $3=3$, so the product is defined and has size $2\times4$.
+- $BA$: $B_{3\times4}$, $A_{2\times3}$. Here $4\neq2$, so the product is not defined.
+- $BC$: $B_{3\times4}$, $C_{4\times2}$. Here $4=4$, so the product is defined and has size $3\times2$.
+- $CB$: $C_{4\times2}$, $B_{3\times4}$. Here $2\neq3$, so the product is not defined.
+- $AC$: $A_{2\times3}$, $C_{4\times2}$. Here $3\neq4$, so the product is not defined.
+- $CA$: $C_{4\times2}$, $A_{2\times3}$. Here $2=2$, so the product is defined and has size $4\times3$.
+- $AD$: $A_{2\times3}$, $D_{2\times2}$. Here $3\neq2$, so the product is not defined.
+- $DA$: $D_{2\times2}$, $A_{2\times3}$. Here $2=2$, so the product is defined and has size $2\times3$.
 
-### Calculations
-
-1. **AB**
-
-   \[
-   (2\times3)(3\times4)=2\times4
-   \]
-
-   Defined.
-
-2. **BA**
-
-   \[
-   (3\times4)(2\times3)
-   \]
-
-   Not defined because \(4\neq2\).
-
-3. **BC**
-
-   \[
-   (3\times4)(4\times2)=3\times2
-   \]
-
-   Defined.
-
-4. **CB**
-
-   \[
-   (4\times2)(3\times4)
-   \]
-
-   Not defined because \(2\neq3\).
-
-5. **AC**
-
-   \[
-   (2\times3)(4\times2)
-   \]
-
-   Not defined because \(3\neq4\).
-
-6. **CA**
-
-   \[
-   (4\times2)(2\times3)=4\times3
-   \]
-
-   Defined.
-
-7. **AD**
-
-   \[
-   (2\times3)(2\times2)
-   \]
-
-   Not defined because \(3\neq2\).
-
-8. **DA**
-
-   \[
-   (2\times2)(2\times3)=2\times3
-   \]
-
-   Defined.
-
-### Final Results
-
-| Product | Defined? | Result Size |
-|---|---|---|
-| AB | Yes | \(2\times4\) |
-| BA | No | — |
-| BC | Yes | \(3\times2\) |
-| CB | No | — |
-| AC | No | — |
-| CA | Yes | \(4\times3\) |
-| AD | No | — |
-| DA | Yes | \(2\times3\) |
-
-### Explanation
-
-Matrix multiplication depends on the compatibility of the inner dimensions. The outer dimensions determine the size of the resulting matrix.
+Conclusion: the defined products are $AB$, $BC$, $CA$, $DA$.
