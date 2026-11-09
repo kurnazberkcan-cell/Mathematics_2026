@@ -1,145 +1,131 @@
-# Exercise 8. Row Operations and Their Reversibility
+# Problem 9. Composing Transformations
 
-## Exercise Statement
+## Question
 
-Given:
+Let
 
-\[
-A=
+$$
+S=
 \begin{pmatrix}
-1&2&-1\\
-2&4&1\\
--1&1&3
+2 & 0 \\
+0 & 1 \\
+\end{pmatrix},
+$$
+
+$$
+R=
+\begin{pmatrix}
+0 & -1 \\
+1 & 0 \\
+\end{pmatrix}.
+$$
+
+The matrix $S$ describes nonuniform scaling, while $R$ describes a $90^\circ$ counterclockwise rotation. For
+
+$$
+x=
+\begin{pmatrix}
+1 \\
+2 \\
 \end{pmatrix}
-\]
+$$
 
-Perform the following operations in order:
-
-1. \(R_2\leftarrow R_2-2R_1\)
-2. \(R_3\leftarrow R_3+R_1\)
-3. Interchange \(R_2\) and \(R_3\).
-
-Write the matrix after each step. Then, for each of the three operations, state an operation that reverses it.
+compute $RSx$ and $SRx$. Compare the results and explain geometrically why the order of these transformations matters.
 
 ## Solution
 
-### Initial Matrix
+In $RSx$ the vector is first scaled by $S$ and then rotated by $R$. In $SRx$ it is first rotated and then scaled.
 
-\[
-A=
+Computing $RSx$:
+
+$$
+Sx=
 \begin{pmatrix}
-1&2&-1\\
-2&4&1\\
--1&1&3
+2 \\
+2 \\
 \end{pmatrix}
-\]
+$$
 
-### Step 1
-
-Apply:
-
-\[
-R_2\leftarrow R_2-2R_1
-\]
-
-Calculate the second row:
-
-\[
-(2,4,1)-2(1,2,-1)
-\]
-
-\[
-=(2,4,1)-(2,4,-2)
-\]
-
-\[
-=(0,0,3)
-\]
-
-Therefore:
-
-\[
-A_1=
+$$
+RSx=R
 \begin{pmatrix}
-1&2&-1\\
-0&0&3\\
--1&1&3
+2 \\
+2 \\
 \end{pmatrix}
-\]
-
-**Reverse operation:**
-
-\[
-R_2\leftarrow R_2+2R_1
-\]
-
-### Step 2
-
-Apply:
-
-\[
-R_3\leftarrow R_3+R_1
-\]
-
-Calculate the third row:
-
-\[
-(-1,1,3)+(1,2,-1)
-\]
-
-\[
-=(0,3,2)
-\]
-
-Therefore:
-
-\[
-A_2=
+=
 \begin{pmatrix}
-1&2&-1\\
-0&0&3\\
-0&3&2
+-2 \\
+2 \\
 \end{pmatrix}
-\]
+$$
 
-**Reverse operation:**
+Computing $SRx$:
 
-\[
-R_3\leftarrow R_3-R_1
-\]
-
-### Step 3
-
-Interchange rows 2 and 3:
-
-\[
-R_2\leftrightarrow R_3
-\]
-
-Therefore:
-
-\[
-\boxed{
-A_3=
+$$
+Rx=
 \begin{pmatrix}
-1&2&-1\\
-0&3&2\\
-0&0&3
+-2 \\
+1 \\
 \end{pmatrix}
-}
-\]
+$$
 
-**Reverse operation:**
+$$
+SRx=S
+\begin{pmatrix}
+-2 \\
+1 \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+-4 \\
+1 \\
+\end{pmatrix}
+$$
 
-\[
-R_2\leftrightarrow R_3
-\]
+Verification through the products of matrices:
 
-### Explanation
+$$
+RS=
+\begin{pmatrix}
+0 & -1 \\
+2 & 0 \\
+\end{pmatrix},
+$$
 
-Each elementary row operation is reversible.
+$$
+SR=
+\begin{pmatrix}
+0 & -2 \\
+1 & 0 \\
+\end{pmatrix}
+$$
 
-- Adding a multiple of one row to another is reversed by subtracting the same multiple.
-- Interchanging two rows is reversed by performing the same interchange again.
+$$
+RS
+\begin{pmatrix}
+1 \\
+2 \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+-2 \\
+2 \\
+\end{pmatrix},
+$$
 
-These operations are important in Gaussian elimination and solving systems of linear equations.
+$$
+SR
+\begin{pmatrix}
+1 \\
+2 \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+-4 \\
+1 \\
+\end{pmatrix}
+$$
+
+The results differ: $RSx=(-2,2)^T$ and $SRx=(-4,1)^T$, so $RS\neq SR$.
+
+Geometric explanation: $S$ stretches only in the direction of the $x$-axis. If we scale first, the stretch acts on the original horizontal direction and then the stretched picture is rotated. If we rotate first, the horizontal direction has already become the vertical one, so $S$ now stretches the picture along the original vertical direction, which after rotation lies along the $x$-axis. Different directions are stretched, so the final images are different.
