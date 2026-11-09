@@ -1,204 +1,97 @@
-# Exercise 7. Identity Matrix, Zero Matrix, and Powers
+# Problem 7. Identity Matrix, Zero Matrix, and Powers
 
-## Exercise Statement
+## Question
 
-Given:
+For
 
-\[
+$$
 A=
 \begin{pmatrix}
-2&1\\
-0&2
+2 & 1 \\
+0 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-Compute:
-
-\[
-AI,\qquad IA,\qquad A+0,\qquad A^2,\qquad A^3
-\]
-
-Explain the roles of the identity matrix \(I\) and the zero matrix \(0\), and describe the pattern observed in successive powers of \(A\).
+compute $AI$, $IA$, $A+0$, $A^2$, $A^3$. Explain the roles of the matrices $I$ and $0$, and describe the pattern you observe in successive powers of $A$.
 
 ## Solution
 
-### Part 1. Identity Matrix
+Here $I$ is the $2\times2$ identity matrix and $0$ is the $2\times2$ zero matrix.
 
-The identity matrix is:
-
-\[
+$$
 I=
 \begin{pmatrix}
-1&0\\
-0&1
-\end{pmatrix}
-\]
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix},
+$$
 
-Multiplying A by I:
-
-\[
-AI=
-\begin{pmatrix}
-2&1\\
-0&2
-\end{pmatrix}
-\begin{pmatrix}
-1&0\\
-0&1
-\end{pmatrix}
-\]
-
-\[
-\boxed{
-AI=
-\begin{pmatrix}
-2&1\\
-0&2
-\end{pmatrix}
-}
-\]
-
-Similarly:
-
-\[
-\boxed{
-IA=
-\begin{pmatrix}
-2&1\\
-0&2
-\end{pmatrix}
-}
-\]
-
-### Part 2. Zero Matrix
-
-\[
+$$
 0=
 \begin{pmatrix}
-0&0\\
-0&0
+0 & 0 \\
+0 & 0 \\
 \end{pmatrix}
-\]
+$$
 
-\[
-A+0=
+Multiplying by $I$ on either side leaves $A$ unchanged, and adding $0$ leaves $A$ unchanged:
+
+$$
+AI=IA=A=
 \begin{pmatrix}
-2&1\\
-0&2
-\end{pmatrix}
-+
+2 & 1 \\
+0 & 2 \\
+\end{pmatrix},
+$$
+
+$$
+A+0=A
+$$
+
+So $I$ is the neutral element of multiplication and $0$ is the neutral element of addition.
+
+Powers:
+
+$$
+A^2=A\cdot A=
 \begin{pmatrix}
-0&0\\
-0&0
+4 & 2+2 \\
+0 & 4 \\
 \end{pmatrix}
-\]
+$$
 
-\[
-\boxed{
-A+0=
-\begin{pmatrix}
-2&1\\
-0&2
-\end{pmatrix}
-}
-\]
-
-### Part 3. Calculate A²
-
-\[
-A^2=A\cdot A
-\]
-
-\[
-=
-\begin{pmatrix}
-2&1\\
-0&2
-\end{pmatrix}
-\begin{pmatrix}
-2&1\\
-0&2
-\end{pmatrix}
-\]
-
-\[
-\boxed{
+$$
 A^2=
 \begin{pmatrix}
-4&4\\
-0&4
+4 & 4 \\
+0 & 4 \\
 \end{pmatrix}
-}
-\]
+$$
 
-### Part 4. Calculate A³
-
-\[
-A^3=A^2A
-\]
-
-\[
-=
+$$
+A^3=A^2A=
 \begin{pmatrix}
-4&4\\
-0&4
+8 & 4+8 \\
+0 & 8 \\
 \end{pmatrix}
-\begin{pmatrix}
-2&1\\
-0&2
-\end{pmatrix}
-\]
+$$
 
-\[
-\boxed{
+$$
 A^3=
 \begin{pmatrix}
-8&12\\
-0&8
+8 & 12 \\
+0 & 8 \\
 \end{pmatrix}
-}
-\]
+$$
 
-### Part 5. Observe the Pattern
+Pattern: the diagonal entries are $2^n$ and the upper-right entry is $n\cdot2^{n-1}$:
 
-\[
-A=
-\begin{pmatrix}
-2&1\\
-0&2
-\end{pmatrix}
-\]
-
-\[
-A^2=
-\begin{pmatrix}
-4&4\\
-0&4
-\end{pmatrix}
-\]
-
-\[
-A^3=
-\begin{pmatrix}
-8&12\\
-0&8
-\end{pmatrix}
-\]
-
-The general pattern is:
-
-\[
-\boxed{
+$$
 A^n=
 \begin{pmatrix}
-2^n&n2^{n-1}\\
-0&2^n
-\end{pmatrix}
-}
-\]
+2^n & n2^{n-1} \\
+0 & 2^n \\
+\end{pmatrix}.
+$$
 
-### Explanation
-
-The identity matrix does not change a matrix when multiplied by it. The zero matrix does not change a matrix when added to it.
-
-The diagonal entries follow powers of 2, while the upper-right entry follows the pattern \(1,4,12,\ldots\).
+Check: for $n=2$ we get $2\cdot2=4$, and for $n=3$ we get $3\cdot4=12$, which agrees with the computed powers.
