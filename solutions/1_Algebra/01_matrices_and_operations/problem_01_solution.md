@@ -1,60 +1,22 @@
-## Exercise 1. Matrix Size and Entries
+# Problem 3. When Can Matrices Be Multiplied?
 
-Given
+## Question
 
-$$
-A=
-\begin{pmatrix}
-2 & -1 & 3 \\
-0 & 4 & 5
-\end{pmatrix},
-\qquad
-B=
-\begin{pmatrix}
-1 & 0 \\
--2 & 3 \\
-4 & 1
-\end{pmatrix}.
-$$
+The matrix sizes are $A_{2\times3}$, $B_{3\times4}$, $C_{4\times2}$, $D_{2\times2}$.
 
-1. State the sizes of matrices $A$ and $B$.
-2. Read off the entries $a_{12}$, $a_{23}$, $b_{21}$, and $b_{32}$.
-3. Write the second row of $A$ and the first column of $B$ as vectors.
+For each of the products $AB$, $BA$, $BC$, $CB$, $AC$, $CA$, $AD$, $DA$, determine whether it is defined. If it is, state the size of the result. Justify each decision using the dimension compatibility condition.
 
-> **Why this exercise:** builds basic fluency with matrix notation, indices, rows, and columns.
+## Solution
 
----
+The product $XY$ of an $m\times n$ matrix $X$ and a $p\times q$ matrix $Y$ is defined exactly when $n=p$, that is, when the number of columns of $X$ equals the number of rows of $Y$. The result then has size $m\times q$.
 
-### Solution
+- $AB$: $A_{2\times3}$, $B_{3\times4}$. Here $3=3$, so the product is defined and has size $2\times4$.
+- $BA$: $B_{3\times4}$, $A_{2\times3}$. Here $4\neq2$, so the product is not defined.
+- $BC$: $B_{3\times4}$, $C_{4\times2}$. Here $4=4$, so the product is defined and has size $3\times2$.
+- $CB$: $C_{4\times2}$, $B_{3\times4}$. Here $2\neq3$, so the product is not defined.
+- $AC$: $A_{2\times3}$, $C_{4\times2}$. Here $3\neq4$, so the product is not defined.
+- $CA$: $C_{4\times2}$, $A_{2\times3}$. Here $2=2$, so the product is defined and has size $4\times3$.
+- $AD$: $A_{2\times3}$, $D_{2\times2}$. Here $3\neq2$, so the product is not defined.
+- $DA$: $D_{2\times2}$, $A_{2\times3}$. Here $2=2$, so the product is defined and has size $2\times3$.
 
-**1. Sizes**
-
-A matrix with $m$ rows and $n$ columns has size $m \times n$.
-
-- $A$ has 2 rows and 3 columns, so $A$ is a $2 \times 3$ matrix.
-- $B$ has 3 rows and 2 columns, so $B$ is a $3 \times 2$ matrix.
-
-**2. Entries**
-
-The entry $x_{ij}$ is located in row $i$ and column $j$.
-
-| Entry    | Position           | Value |
-|----------|--------------------|-------|
-| $a_{12}$ | row 1, column 2 of $A$ | $-1$ |
-| $a_{23}$ | row 2, column 3 of $A$ | $5$  |
-| $b_{21}$ | row 2, column 1 of $B$ | $-2$ |
-| $b_{32}$ | row 3, column 2 of $B$ | $1$  |
-
-**3. Row and column vectors**
-
-Second row of $A$:
-
-$$
-\begin{pmatrix} 0 & 4 & 5 \end{pmatrix}
-$$
-
-First column of $B$:
-
-$$
-\begin{pmatrix} 1 \\ -2 \\ 4 \end{pmatrix}
-$$
+Conclusion: the defined products are $AB$, $BC$, $CA$, $DA$.
