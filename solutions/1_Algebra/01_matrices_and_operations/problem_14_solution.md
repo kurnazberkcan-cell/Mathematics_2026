@@ -1,107 +1,48 @@
-# Exercise 14. Rotation Matrices
+# Problem 14. Rotation Matrices
 
-## Exercise Statement
+## Question
 
-The matrix for a rotation through an angle \(\theta\) is:
+The matrix for a rotation through an angle $\theta$ is
 
-\[
+$$
 R(\theta)=
 \begin{pmatrix}
-\cos\theta&-\sin\theta\\
-\sin\theta&\cos\theta
-\end{pmatrix}
-\]
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta \\
+\end{pmatrix}.
+$$
 
-Compute \(R(\alpha)R(\beta)\) and, using the angle-sum formulas for sine and cosine, show that:
-
-\[
-R(\alpha)R(\beta)=R(\alpha+\beta)
-\]
-
-Explain the result geometrically.
+Compute $R(\alpha)R(\beta)$ and, using the angle-sum formulas for sine and cosine, show that $R(\alpha)R(\beta)=R(\alpha+\beta)$. Explain the result geometrically.
 
 ## Solution
 
-### Part 1. Write the Rotation Matrices
-
-\[
-R(\alpha)=
-\begin{pmatrix}
-\cos\alpha&-\sin\alpha\\
-\sin\alpha&\cos\alpha
-\end{pmatrix}
-\]
-
-\[
-R(\beta)=
-\begin{pmatrix}
-\cos\beta&-\sin\beta\\
-\sin\beta&\cos\beta
-\end{pmatrix}
-\]
-
-### Part 2. Multiply the Matrices
-
-\[
+$$
 R(\alpha)R(\beta)=
 \begin{pmatrix}
-\cos\alpha&-\sin\alpha\\
-\sin\alpha&\cos\alpha
-\end{pmatrix}
-\begin{pmatrix}
-\cos\beta&-\sin\beta\\
-\sin\beta&\cos\beta
-\end{pmatrix}
-\]
+\cos\alpha\cos\beta-\sin\alpha\sin\beta & -\cos\alpha\sin\beta-\sin\alpha\cos\beta \\
+\sin\alpha\cos\beta+\cos\alpha\sin\beta & -\sin\alpha\sin\beta+\cos\alpha\cos\beta \\
+\end{pmatrix}.
+$$
 
-Multiplying the entries:
+The angle-sum formulas are
 
-\[
-=
-\begin{pmatrix}
-\cos\alpha\cos\beta-\sin\alpha\sin\beta&
--\cos\alpha\sin\beta-\sin\alpha\cos\beta\\
-\sin\alpha\cos\beta+\cos\alpha\sin\beta&
--\sin\alpha\sin\beta+\cos\alpha\cos\beta
-\end{pmatrix}
-\]
+$$
+\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta,
+$$
 
-### Part 3. Apply the Angle-Sum Formulas
+$$
+\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta.
+$$
 
-Recall:
+The upper-left and lower-right entries equal $\cos(\alpha+\beta)$. The lower-left entry equals $\sin(\alpha+\beta)$. The upper-right entry is $-(\cos\alpha\sin\beta+\sin\alpha\cos\beta)=-\sin(\alpha+\beta)$. Therefore
 
-\[
-\cos(\alpha+\beta)
-=
-\cos\alpha\cos\beta-\sin\alpha\sin\beta
-\]
-
-\[
-\sin(\alpha+\beta)
-=
-\sin\alpha\cos\beta+\cos\alpha\sin\beta
-\]
-
-Substituting these identities:
-
-\[
+$$
 R(\alpha)R(\beta)=
 \begin{pmatrix}
-\cos(\alpha+\beta)&-\sin(\alpha+\beta)\\
-\sin(\alpha+\beta)&\cos(\alpha+\beta)
+\cos(\alpha+\beta) & -\sin(\alpha+\beta) \\
+\sin(\alpha+\beta) & \cos(\alpha+\beta) \\
 \end{pmatrix}
-\]
+=R(\alpha+\beta).
+$$
 
-Therefore:
-
-\[
-\boxed{
-R(\alpha)R(\beta)=R(\alpha+\beta)
-}
-\]
-
-### Geometric Explanation
-
-Applying two rotations consecutively is equivalent to performing one rotation through the sum of the two angles.
-
-For example, rotating a vector by 30 degrees and then by 60 degrees is equivalent to rotating it by 90 degrees.
+Geometric explanation: $R(\alpha)R(\beta)$ means first rotating by $\beta$ and then by $\alpha$. Two rotations about the origin in succession give a single rotation by the sum of the angles, so the matrix of the composition is $R(\alpha+\beta)$. Since $\alpha+\beta=\beta+\alpha$, it also follows that $R(\alpha)R(\beta)=R(\beta)R(\alpha)$: rotations in the plane commute.
