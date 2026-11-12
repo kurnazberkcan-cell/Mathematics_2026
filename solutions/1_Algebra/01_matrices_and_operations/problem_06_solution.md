@@ -72,7 +72,7 @@ $$
 \end{pmatrix}
 $$
 
-Right-hand side:
+Right-hand side: $B^T$ is $2\times3$ and $A^T$ is $3\times2$, so $B^TA^T$ is $2\times2$.
 
 $$
 B^TA^T=
@@ -90,4 +90,17 @@ B^TA^T=
 \end{pmatrix}
 $$
 
-Both sides are equal, so $(AB)^T=B^TA^T$ holds in this example. Note that the order of the factors is reversed: $A^TB^T$ would not even be defined here, because $A^T$ is $3\times2$ and $B^T$ is $2\times3$ gives a $3\times3$ result, which has the wrong size.
+Both sides are equal, so $(AB)^T=B^TA^T$ holds in this example.
+
+The order of the factors is reversed. The product $A^TB^T$ is also defined here, because $A^T$ is $3\times2$ and $B^T$ is $2\times3$, but it has size $3\times3$ and is a different matrix from $(AB)^T$, which is $2\times2$.
+
+$$
+A^TB^T=
+\begin{pmatrix}
+1 & 6 & 11 \\
+2 & 9 & 13 \\
+3 & 12 & 15 \\
+\end{pmatrix}
+$$
+
+So $(AB)^T\neq A^TB^T$ in this example, and the order cannot be kept.
