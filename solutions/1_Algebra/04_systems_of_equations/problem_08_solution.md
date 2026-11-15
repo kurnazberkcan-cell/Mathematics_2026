@@ -1,4 +1,21 @@
 # Exercise 8. Two Systems with the Same Coefficient Matrix
+Solve by elimination the two systems
+
+$$
+\begin{cases}
+2x+y=5, \\
+x-y=1,
+\end{cases}
+$$
+
+$$
+\begin{cases}
+2x+y=1, \\
+x-y=4.
+\end{cases}
+$$
+
+Compare the successive elimination steps. Which part of the calculation is the same in both cases, and why?
 
 ## Solution
 
