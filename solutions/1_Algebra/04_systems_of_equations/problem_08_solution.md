@@ -1,4 +1,12 @@
 # Exercise 8. Two Systems with the Same Coefficient Matrix
+Find numbers $x,y$ satisfying
+
+$$
+x+y=10,\qquad 2x+5y=32.
+$$
+
+Solve the system and explain geometrically why the solution is unique.
+
 Solve by elimination the two systems
 
 $$
