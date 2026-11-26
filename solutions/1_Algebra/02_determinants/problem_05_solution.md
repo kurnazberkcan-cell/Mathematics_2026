@@ -1,31 +1,81 @@
-## Problem 5
+# Exercise 5. Row Operations
 
-**Question:** Let
+## Question
 
-$$
-A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 0 \\ -1 & 4 & 2 \end{pmatrix}.
-$$
+Consider the matrix:
 
-Compute $\det A$ by reducing $A$ to an upper triangular matrix using row operations. Keep track of each row operation and state how it affects the determinant.
+\[
+A=
+\begin{pmatrix}
+1 & 2 & 3\\
+2 & 1 & 0\\
+-1 & 4 & 2
+\end{pmatrix}
+\]
 
-### Solution
+Find \(\det A\) by simplifying the matrix using elementary row operations.
 
-Use row operations to reduce $A$ to an upper triangular matrix. Recall that adding a multiple of one row to another row does not change the determinant.
+At each step, indicate whether and how the determinant changes.
 
-$$
-A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 0 \\ -1 & 4 & 2 \end{pmatrix}
-$$
+## Solution
 
-**Step 1:** $R_2 \to R_2 - 2R_1$. This adds a multiple of another row, so the determinant does not change.
+Start with:
 
-$$
-\det A = \det\begin{pmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ -1 & 4 & 2 \end{pmatrix}
-$$
+\[
+A=
+\begin{pmatrix}
+1 & 2 & 3\\
+2 & 1 & 0\\
+-1 & 4 & 2
+\end{pmatrix}
+\]
 
-**Step 2:** $R_3 \to R_3 + R_1$. This adds a multiple of another row, so the determinant does not change.
+**Step 1:** Apply \(R_2\rightarrow R_2-2R_1\).
 
-$$
-\det A = \det\begin{pmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 0 & 6 & 5 \end{pmatrix}
-$$
+Adding a multiple of one row to another does not change the determinant.
 
-**Step 3:** $R_3 \to R_3 + 2R_2$. This adds a
+\[
+\begin{pmatrix}
+1 & 2 & 3\\
+0 & -3 & -6\\
+-1 & 4 & 2
+\end{pmatrix}
+\]
+
+**Step 2:** Apply \(R_3\rightarrow R_3+R_1\).
+
+This operation also does not change the determinant.
+
+\[
+\begin{pmatrix}
+1 & 2 & 3\\
+0 & -3 & -6\\
+0 & 6 & 5
+\end{pmatrix}
+\]
+
+**Step 3:** Apply \(R_3\rightarrow R_3+2R_2\).
+
+This operation also preserves the determinant.
+
+\[
+\begin{pmatrix}
+1 & 2 & 3\\
+0 & -3 & -6\\
+0 & 0 & -7
+\end{pmatrix}
+\]
+
+The resulting matrix is upper triangular. Its determinant is the product of its diagonal entries.
+
+\[
+\det A=1\cdot(-3)\cdot(-7)
+\]
+
+\[
+\boxed{\det A=21}
+\]
+
+**Conclusion:**
+
+All three row operations involved adding a multiple of one row to another. These operations do not change the determinant. Therefore, the determinant of the original matrix is \(21\).
