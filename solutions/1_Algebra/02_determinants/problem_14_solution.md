@@ -1,51 +1,75 @@
-## Exercise 14. A System of Equations and the Determinant
+# Exercise 14. A System of Equations and the Determinant
 
-Given
+## Question
+
+Consider the system $Ax=b$, where
 
 $$
 A=
 \begin{pmatrix}
 1 & 2 \\
-k & 4 \\
-\end{pmatrix}
+k & 4
+\end{pmatrix}.
 $$
 
-The determinant is
+Determine the values of $k$ for which the system has exactly one solution for every right-hand side $b$.
+
+For the remaining value of $k$, give:
+- An example of a right-hand side $b$ for which the system has infinitely many solutions.
+- An example of a right-hand side $b$ for which the system has no solution.
+
+## Solution
+
+A system $Ax=b$ has exactly one solution for every $b$ if and only if the matrix $A$ is invertible.
+
+Calculate the determinant:
 
 $$
-\det A=1\cdot4-2k=4-2k
-$$
-
-The system has exactly one solution for every $b$ if and only if the matrix is invertible.
-
-Therefore,
-
-$$
-4-2k\neq0
+\det A =
+\begin{vmatrix}
+1 & 2 \\
+k & 4
+\end{vmatrix}
 $$
 
 $$
-k\neq2
+\det A = 4-2k
 $$
 
-Hence, the system has exactly one solution for every $b$ when
+The matrix is invertible when
 
 $$
-\boxed{k\neq2}
+4-2k \neq 0
 $$
 
-### Exceptional case: $k=2$
+$$
+k \neq 2
+$$
 
-When $k=2$, the system becomes
+Therefore, the system has exactly one solution for every $b$ when $k \neq 2$.
+
+For the exceptional value $k=2$, the matrix becomes
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 \\
+2 & 4
+\end{pmatrix}.
+$$
+
+The corresponding system is
 
 $$
 \begin{cases}
-x+2y=b_1, \\
-2x+4y=b_2.
+x_1+2x_2=b_1 \\
+2x_1+4x_2=b_2
 \end{cases}
 $$
 
-**Example with infinitely many solutions:**
+The second equation has a left-hand side that is twice the first equation.
+
+**Example 1: Infinitely many solutions**
 
 Choose
 
@@ -53,22 +77,22 @@ $$
 b=
 \begin{pmatrix}
 1 \\
-2 \\
-\end{pmatrix}
+2
+\end{pmatrix}.
 $$
 
 The system becomes
 
 $$
 \begin{cases}
-x+2y=1, \\
-2x+4y=2.
+x_1+2x_2=1 \\
+2x_1+4x_2=2
 \end{cases}
 $$
 
-The second equation is twice the first. Therefore, both equations represent the same line, and there are infinitely many solutions.
+The second equation is twice the first equation. Therefore, there is only one independent equation with two unknowns, giving infinitely many solutions.
 
-**Example with no solution:**
+**Example 2: No solution**
 
 Choose
 
@@ -76,19 +100,23 @@ $$
 b=
 \begin{pmatrix}
 1 \\
-0 \\
-\end{pmatrix}
+3
+\end{pmatrix}.
 $$
 
 The system becomes
 
 $$
 \begin{cases}
-x+2y=1, \\
-2x+4y=0.
+x_1+2x_2=1 \\
+2x_1+4x_2=3
 \end{cases}
 $$
 
-The second equation contradicts the first because its left-hand side is twice the first equation, but its right-hand side is not twice the first right-hand side.
+The second equation would require the left-hand side to equal $2$, while its right-hand side is $3$. This is a contradiction.
 
 Therefore, the system has no solution.
+
+In conclusion:
+- For $k \neq 2$, the system has exactly one solution for every $b$.
+- For $k=2$, the system may have infinitely many solutions or no solution, depending on $b$.
