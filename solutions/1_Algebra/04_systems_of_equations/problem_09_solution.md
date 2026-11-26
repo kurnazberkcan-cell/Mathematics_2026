@@ -1,4 +1,11 @@
 # Exercise 9. A System from a Sum Condition
+Find numbers $x,y$ satisfying
+
+$$
+x+y=10,\qquad 2x+5y=32.
+$$
+
+Solve the system and explain geometrically why the solution is unique.
 
 ## Solution
 
